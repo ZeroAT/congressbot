@@ -1,23 +1,11 @@
 import praw
+import requests
+import json
 
-reddit = praw.Reddit(client_id='ztpKA8bDHobH6A',
-                     client_secret='AhgsPPtXlUfjQFP-qoWQ5VB8fPk',
-                     username='Zerotil',
-                     password='passmod1',
-                     user_agent='prawguide')
+response = requests.get("https://api.propublica.org/congress/v1/115/house/bills/introduced.json", headers={'X-API-Key': 'x2lvYYuxgWmzInlfwUOAqS2LBm7uSpwz8y2aUx7b'})
 
-subreddit = reddit.subreddit('python')
+print(response.status_code)
 
-hot_python = subreddit.hot(limit=5)
-
-for submission in hot_python:
-    if not submission.stickied:
-
-        comments = submission.comments
-        for comment in comments:
-            print(20*'-')
-            print(comment.body)
-
-            if len(comment.replies) > 0:
-                for reply in comment.replies:
-                    print('REPLY: ', reply.body)
+if response.status_code == requests.codes.ok:
+    response_native = json.loads(response.text)
+    print(response_native)
