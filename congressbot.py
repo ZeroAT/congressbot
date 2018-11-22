@@ -20,4 +20,4 @@ for submission in hot_python:
 
             if len(comment.replies) > 0:
                 for reply in comment.replies:
-                    print('REPLY:', reply.body)
+                    print('REPLY: ', reply.body)
