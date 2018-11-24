@@ -7,6 +7,11 @@ response = requests.get("https://api.propublica.org/congress/v1/115/house/bills/
 
 data = json.loads(response)
 
+status = data["status"]
+
+if status == 'OK':
+    for each in data['results'][0]['bills']:
+        print(each)
+
 test = data['results'][0]['bills'][0]['bill_id']
 
-print(test)
