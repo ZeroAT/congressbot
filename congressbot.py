@@ -11,7 +11,7 @@ status = data["status"]
 
 if status == 'OK':
     for each in data['results'][0]['bills']:
-        print(each)
+        print(each.get("bill_id"))
 
 test = data['results'][0]['bills'][0]['bill_id']
 
