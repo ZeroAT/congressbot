@@ -7,7 +7,7 @@ def bot_login():
     reddit = praw.Reddit(client_id='ztpKA8bDHobH6A',
                          client_secret='AhgsPPtXlUfjQFP-qoWQ5VB8fPk',
                          username='Zerotil',
-                         password='passmod1',
+                         password='',
                          user_agent='prawguide')
     return reddit
 
